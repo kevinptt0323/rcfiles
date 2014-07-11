@@ -1,0 +1,1 @@
+/home/kevinptt/.vimrc
