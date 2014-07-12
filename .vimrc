@@ -1,4 +1,4 @@
-" 20140712 2211
+" 20140713 0014
 " set encoding
 set encoding=utf-8
 set fileencodings=utf-8,big5
@@ -51,10 +51,11 @@ function! Set_c_Prefs()
 	map<F11> :!gcc "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im -g && valgrind --leak-check=full --log-file=%:r.vglog ./%:r.out
 endfunction
 function! Set_cpp_Prefs()
-	map<F9> :!g++49 "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im && echo "===== compile done =====" && "./%:r.out"
-	map<F10> :!g++49 "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im
-	"map<F9> :!g++ "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im && echo "===== compile done =====" && "./%:r.out"
-	"map<F10> :!g++ "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im
+	map<F8> :!g++49 "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im && echo "===== compile done =====" && "./%:r.out"
+	map<F9> :!g++49 "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im -DKEVINPTT && echo "===== compile done =====" && "./%:r.out"
+	map<F10> :!g++49 "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im -DKEVINPTT 
+	"map<F9> :!g++ "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im -DKEVINPTT && echo "===== compile done =====" && "./%:r.out"
+	"map<F10> :!g++ "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im -DKEVINPTT
 	map<F11> :!g++ "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im -g && valgrind --leak-check=full --log-file=%:r.vglog ./%:r.out
 endfunction
 function! Set_pascal_Prefs()
