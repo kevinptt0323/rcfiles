@@ -1,4 +1,4 @@
-" 20140711 0950
+" 20140712 2139
 " set encoding
 set encoding=utf-8
 set fileencodings=utf-8,big5
@@ -22,8 +22,7 @@ set autoindent
 set smarttab
 set smartindent
 set autochdir
-set listchars=tab:▸\ 
-" set listchars=tab:▸\ 
+set listchars=tab:>\ 
 set list
 filetype on
 filetype plugin on
