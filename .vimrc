@@ -1,31 +1,48 @@
-" 20140713 0014
-" set encoding
+" 20140713 2049
+"Encoding settings
 set encoding=utf-8
+set fileformat=unix
+set ambiwidth=double
 set fileencodings=utf-8,big5
 
-set t_Co=256
+" Show mode on bottom-left
 set showmode
+
+" Color settings
 syntax on
+set t_Co=256
 set hlsearch
-set background=dark
+set bg=dark
+
+" Status line
 set laststatus=2
 set wildmenu " commend line auto complete
-set scrolloff=5 " keep at least 5 lines above/below
+
+" keep at least 5 lines above/below
+set scrolloff=5
+
 set ruler
 set cursorline
-" set ic    " ignore case when searching
-set bs=2  " enable backspace
-set number
+
+" ignore case when searching
+" set ic
+
+" Enable backspace
+set bs=2
+
+" Show line numbers
+set nu
+
+" Tab charactor related settings
 set tabstop=4
 set shiftwidth=4
 set autoindent
 set smarttab
 set smartindent
-set autochdir
 set listchars=tab:>\ 
 set list
-filetype on
-filetype plugin on
+
+set autochdir
 
 set statusline=%4*%<\ %1*[%F]
 set statusline+=%4*\ %5*[%{&encoding},  "encoding
@@ -44,6 +61,11 @@ hi TabLine ctermfg=Black ctermbg=Grey
 hi TabLineSel ctermfg=White ctermbg=Black
 
 map<F9> :!./%:t
+
+nnoremap k gk
+nnoremap j gj
+
+inoremap jj <ESC> 
 
 function! Set_c_Prefs()
 	map<F9>  :!gcc "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im && echo "===== compile done =====" && "./%:r.out"
@@ -65,17 +87,17 @@ function! Set_pascal_Prefs()
 endfunction
 
 function! Set_web_Prefs()
-	set tabstop=2
-	set shiftwidth=2
-	set listchars=tab:\|\ 
+	setlocal tabstop=2
+	setlocal shiftwidth=2
+	setlocal listchars=tab:\|\ 
 endfunction
 
 
+filetype on
+filetype plugin on
 autocmd filetype c call Set_c_Prefs()
 autocmd filetype cpp call Set_cpp_Prefs()
 autocmd filetype pascal call Set_pascal_Prefs()
 autocmd filetype javascript,html,xml,html,xhtml call Set_web_Prefs()
-
-inoremap jj <ESC> 
 
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/Template.%:e
