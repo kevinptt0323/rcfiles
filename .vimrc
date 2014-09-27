@@ -98,6 +98,6 @@ filetype plugin on
 autocmd filetype c call Set_c_Prefs()
 autocmd filetype cpp call Set_cpp_Prefs()
 autocmd filetype pascal call Set_pascal_Prefs()
-autocmd filetype javascript,html,xml,html,xhtml call Set_web_Prefs()
+autocmd filetype javascript,html,xml,html,xhtml,php call Set_web_Prefs()
 
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/Template.%:e
