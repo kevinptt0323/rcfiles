@@ -6,6 +6,8 @@ alias py python3
 
 # setenv LC_CTYPE  en_US.UTF-8
 
+source ~/git-completion.tcsh
+
 if ($?prompt) then
 	set autolist
 	if(! $?WINDOW ) then
