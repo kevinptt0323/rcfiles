@@ -1,4 +1,4 @@
-" 20140713 2049
+" 20140927 2333
 "Encoding settings
 set encoding=utf-8
 set fileformat=unix
@@ -60,7 +60,8 @@ hi User6 ctermfg=white ctermbg=darkgray
 hi TabLine ctermfg=Black ctermbg=Grey
 hi TabLineSel ctermfg=White ctermbg=Black
 
-map<F9> :!./%:t
+imap<F9> <ESC>:w<Enter><F9>
+nmap<F9> :!./%:t
 
 nnoremap k gk
 nnoremap j gj
@@ -68,22 +69,22 @@ nnoremap j gj
 inoremap jj <ESC> 
 
 function! Set_c_Prefs()
-	map<F9>  :!gcc "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im && echo "===== compile done =====" && "./%:r.out"
-	map<F10> :!gcc "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im
-	map<F11> :!gcc "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im -g && valgrind --leak-check=full --log-file=%:r.vglog ./%:r.out
+	nmap<F9>  :!gcc "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im && echo "===== compile done =====" && "./%:r.out"
+	nmap<F10> :!gcc "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im
+	nmap<F11> :!gcc "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im -g && valgrind --leak-check=full --log-file=%:r.vglog ./%:r.out
 endfunction
 function! Set_cpp_Prefs()
-	map<F8> :!g++49 "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im && echo "===== compile done =====" && "./%:r.out"
-	map<F9> :!g++49 "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im -DKEVINPTT && echo "===== compile done =====" && "./%:r.out"
-	map<F10> :!g++49 "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im -DKEVINPTT 
+	nmap<F8> :!g++ "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im && echo "===== compile done =====" && "./%:r.out"
+	nmap<F9> :!g++ "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im -DKEVINPTT && echo "===== compile done =====" && "./%:r.out"
+	nmap<F10> :!g++ "%:t" -o "%:r.out" --std=c++11 -static -Wall -Wshadow -O2 -Im -DKEVINPTT 
 	"map<F9> :!g++ "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im -DKEVINPTT && echo "===== compile done =====" && "./%:r.out"
 	"map<F10> :!g++ "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im -DKEVINPTT
-	map<F11> :!g++ "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im -g && valgrind --leak-check=full --log-file=%:r.vglog ./%:r.out
+	"map<F11> :!g++ "%:t" -o "%:r.out" -Wall -Wshadow -O2 -Im -g && valgrind --leak-check=full --log-file=%:r.vglog ./%:r.out
 endfunction
 function! Set_pascal_Prefs()
-	map<F9>  :!fpc "%:t" && echo "===== compile done =====" && "./%:r"
-	map<F10> :!fpc "%:t"
-	map<F11> :!fpc "%:t" && valgrind --leak-check=full --log-file=%:r.vglog ./%:r
+	nmap<F9>  :!fpc "%:t" && echo "===== compile done =====" && "./%:r"
+	nmap<F10> :!fpc "%:t"
+	nmap<F11> :!fpc "%:t" && valgrind --leak-check=full --log-file=%:r.vglog ./%:r
 endfunction
 
 function! Set_web_Prefs()
@@ -92,12 +93,11 @@ function! Set_web_Prefs()
 	setlocal listchars=tab:\|\ 
 endfunction
 
-
 filetype on
 filetype plugin on
 autocmd filetype c call Set_c_Prefs()
 autocmd filetype cpp call Set_cpp_Prefs()
-autocmd filetype pascal call Set_pascal_Prefs()
+"autocmd filetype pascal call Set_pascal_Prefs()
 autocmd filetype javascript,html,xml,html,xhtml call Set_web_Prefs()
 
 autocmd! BufNewFile * silent! 0r ~/.vim/skel/Template.%:e
