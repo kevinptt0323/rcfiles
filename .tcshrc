@@ -3,6 +3,7 @@ alias xterm xterm -bg black -fg white
 alias . ls
 alias .. cd ..
 alias py python3
+alias g++ g++49
 
 # setenv LC_CTYPE  en_US.UTF-8
 
@@ -11,10 +12,10 @@ source ~/git-completion.tcsh
 if ($?prompt) then
 	set autolist
 	if(! $?WINDOW ) then
-		set prompt="%{^[[1;36m%}%T%{^[[m%}%{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m%{^[[1;32m%}[%~]%{^[[m%}> "
+		set prompt="\n%{^[[1;36m%}%T%{^[[m%}%{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m%{^[[1;32m%}[%~]%{^[[m%} \n> "
 	else
 		set session_name="`echo $STY | cut -d '.' -f2`"
-		set prompt="%{^[[1;36m%}%T%{^[[m%}%{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m%{^[[1;32m%}[%~]%{^[[m%}%{^[[1;35m%}[$session_name W$WINDOW]%{^[[m%}> "
+		set prompt="\n%{^[[1;36m%}%T%{^[[m%}%{^[[1;33m%}%n%{^[[m%}@%{^[[1;37m%}%m%{^[[1;32m%}[%~]%{^[[m%}%{^[[1;35m%}[$session_name W$WINDOW]%{^[[m%} \n> "
 	endif
 	if ($?tcsh) then
 		set mail = (/var/mail/$USER)
