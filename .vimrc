@@ -3,7 +3,7 @@
 set encoding=utf-8
 set fileformat=unix
 set ambiwidth=double
-set fileencodings=utf-8,big5
+set fileencodings=utf-8,big5,latin1
 
 " Show mode on bottom-left
 set showmode
@@ -92,6 +92,7 @@ function! Set_web_Prefs()
 	setlocal shiftwidth=2
 	setlocal listchars=tab:\|\ 
 endfunction
+
 
 filetype on
 filetype plugin on
