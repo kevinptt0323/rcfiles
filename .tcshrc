@@ -3,6 +3,7 @@ alias xterm xterm -bg black -fg white
 alias . ls
 alias .. cd ..
 alias py python3
+alias py2 python2
 alias g++ g++49
 
 # setenv LC_CTYPE  en_US.UTF-8
@@ -45,3 +46,12 @@ setenv LSCOLORS GxFxFxDxBxegedabagGxGx
 #9. executable with setgid bit set
 #10.directory writable to others, with sticky bit
 #11.directory writable to others, without sticky bit
+
+#colorful man
+setenv LESS_TERMCAP_mb '[38;5;135m'
+setenv LESS_TERMCAP_md '[38;5;203m'
+setenv LESS_TERMCAP_me '[0m'
+setenv LESS_TERMCAP_so '[38;5;225m'
+setenv LESS_TERMCAP_se '[0m'
+setenv LESS_TERMCAP_us '[2;1;4;32m'
+setenv LESS_TERMCAP_ue '[0m'
