@@ -1,0 +1,14 @@
+OS=`env uname -s`
+if [[ $OS == "Linux" ]]; then
+    alias l='env ls -F --color'
+    alias ls='env ls -Fhl --color'
+    alias ll='env ls -hlaF --color'
+else
+    alias l='env ls -GF'
+    alias ls='env ls -hlGF'
+    alias ll='env ls -hlaGF'
+fi
+if [[ $OS == "Darwin" ]];then
+    alias sd="cd /Volumes/SD/"
+fi
+
