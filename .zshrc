@@ -32,14 +32,14 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-bindkey '^[[A' up-line-or-search                                                
+bindkey "^W" backward-delete-word
+
+bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
-# bindkey from pi314 github repo
-bindkey "\e[H" beginning-of-line
-bindkey "\e[1~" beginning-of-line # for screen
-bindkey "\eOH" beginning-of-line # for cygwin + mosh
-
-bindkey "\e[F" end-of-line
-bindkey "\e[4~" end-of-line # for screen
-bindkey "\eOF" end-of-line # for cygwin + mosh
+bindkey "\e[1~" beginning-of-line # Home
+bindkey "\e[7~" beginning-of-line # Home rxvt
+bindkey "\e[2~" overwrite-mode    # Ins
+bindkey "\e[3~" delete-char       # Delete
+bindkey "\e[4~" end-of-line       # End
+bindkey "\e[8~" end-of-line       # End rxvt

@@ -1,5 +1,5 @@
 # color prompt
-#git status prompt
+# git status prompt
 
 if [ -f $HOME/rc/zsh/zsh-git-prompt/zshrc.sh ]; then
     source $HOME/rc/zsh/zsh-git-prompt/zshrc.sh
@@ -7,14 +7,24 @@ fi
 
 autoload -U colors
 colors
-b_yellow="%{$fg_bold[yellow]%}" #bold yellow
+b_black="%{$fg_bold[black]%}"
+b_yellow="%{$fg_bold[yellow]%}"
 b_blue="%{$fg_bold[blue]%}"
 b_cyan="%{$fg_bold[cyan]%}"
+b_magenta="%{$fg_bold[magenta]%}"
 b_green="%{$fg_bold[green]%}"
 b_white="%{$fg_bold[white]%}"
 b_gray="%{$fg_bold[gray]%}"
 end="%{$reset_color%}"
-PROMPT="
-${b_yellow}%n${end}@${b_white}%m ${b_cyan}%T${end} » ${b_green}%~${end}
-${b_white}> $end"
+
+if [ -n "$WINDOW" ]; then
+	session_name="`echo $STY | cut -d '.' -f2`"
+	PROMPT="
+${b_cyan}%T${end} ${b_yellow}%n${end} » ${b_magenta}w${WINDOW}-${session_name}${end} » ${b_white}%m
+${b_white}%~ » $end"
+else
+	PROMPT="
+${b_cyan}%T${end} ${b_yellow}%n${end} » ${b_white}%m
+${b_white}%~ » $end"
+fi
 
