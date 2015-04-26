@@ -21,10 +21,10 @@ if [ -n "$WINDOW" ]; then
 	session_name="`echo $STY | cut -d '.' -f2`"
 	PROMPT="
 ${b_cyan}%T${end} ${b_yellow}%n${end} » ${b_magenta}w${WINDOW}-${session_name}${end} » ${b_white}%m
-${b_white}%~ » $end"
+${b_green}%~${end} ${fg_white}»$end "
 else
 	PROMPT="
 ${b_cyan}%T${end} ${b_yellow}%n${end} » ${b_white}%m
-${b_white}%~ » $end"
+${b_green}%~${end} ${fg_white}»$end "
 fi
 
