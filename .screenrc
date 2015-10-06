@@ -1,10 +1,4 @@
-screen -t sudo0 0 sudo su
-screen -t sudo1 1 sudo su
-screen -t IRC 2 irssi
-#screen -t PTT 2 telnet ptt.cc
-#screen -t BS2 3 telnet bbs.cs.nctu.edu.tw
-screen -t code 3
-screen -t home 4
+screen -t home 0
 
 # Look and feel
 #caption always "%{= 11}%{+b w}%{WK}Screen: %n | %h %=%t %Y/%m/%d %c:%s"
@@ -22,5 +16,7 @@ defutf8 on
 #bindkey "^[>" eval number !echo $WINDOW+1|bc
 bindkey \033[D prev
 bindkey \033[C next
+bindkey \e[1;5d prev
+bindkey \e[1;5c next
 bindkey "^[," prev
 bindkey "^[." next
