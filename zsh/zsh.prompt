@@ -1,8 +1,8 @@
 # color prompt
 # git status prompt
 
-if [ -f $HOME/rc/zsh/zsh-git-prompt/zshrc.sh ]; then
-    source $HOME/rc/zsh/zsh-git-prompt/zshrc.sh
+if [ -f $HOME/rcfiles/zsh/zsh-git-prompt/zshrc.sh ]; then
+    source $HOME/rcfiles/zsh/zsh-git-prompt/zshrc.sh
 fi
 
 autoload -U colors
@@ -21,7 +21,7 @@ if [ -n "$WINDOW" ]; then
 	session_name="`echo $STY | cut -d '.' -f2`"
 	PROMPT="
 ${b_cyan}%T${end} ${b_yellow}%n${end} » ${b_magenta}w${WINDOW}-${session_name}${end} » ${b_white}%m
-${b_green}%~${end} ${fg_white}»$end "
+${b_green}%~${end} ${fg_white} »$end "
 else
 	PROMPT="
 ${b_cyan}%T${end} ${b_yellow}%n${end} » ${b_white}%m
