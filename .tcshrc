@@ -8,7 +8,9 @@ alias g++ g++49
 
 # setenv LC_CTYPE  en_US.UTF-8
 
-source ~/git-completion.tcsh
+if (-f ~/git-completion.tcsh) then
+	source ~/git-completion.tcsh
+endif
 
 if ($?prompt) then
 	set autolist

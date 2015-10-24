@@ -16,5 +16,7 @@ defutf8 on
 #bindkey "^[>" eval number !echo $WINDOW+1|bc
 bindkey \033[D prev
 bindkey \033[C next
+bindkey \e[1;5d prev
+bindkey \e[1;5c next
 bindkey "^[," prev
 bindkey "^[." next
