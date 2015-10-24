@@ -12,3 +12,14 @@ if [[ $OS == "Darwin" ]];then
     alias sd="cd /Volumes/SD/"
 fi
 
+if [[ -f /usr/local/bin/gcc49 ]];then
+    alias gcc="/usr/local/bin/gcc49"
+elif  [[ -f /usr/local/bin/gcc48 ]];then
+    alias gcc="/usr/local/bin/gcc48"
+fi
+if [[ -f /usr/local/bin/g++49 ]];then
+    alias g++="/usr/local/bin/g++49"
+elif  [[ -f /usr/local/bin/g++48 ]];then
+    alias g++="/usr/local/bin/g++48"
+fi
+
