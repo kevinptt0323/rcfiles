@@ -1,17 +1,11 @@
-screen -t sudo0 0 sudo su
-screen -t sudo1 1 sudo su
-screen -t IRC 2 irssi
-#screen -t PTT 2 telnet ptt.cc
-#screen -t BS2 3 telnet bbs.cs.nctu.edu.tw
-screen -t code 3
-screen -t home 4
+screen -t home
 
 # Look and feel
 #caption always "%{= 11}%{+b w}%{WK}Screen: %n | %h %=%t %Y/%m/%d %c:%s"
 caption always "%{WK}Screen: %n | %h %=%t %Y/%m/%d %c:%s"
 hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
 vbell off
-256-Color
+term "screen-256color"
 
 # Always start screen with utf8 enabled. (Alternative method is to run screen with -U parameter)
 defutf8 on

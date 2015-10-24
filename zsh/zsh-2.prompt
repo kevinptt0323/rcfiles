@@ -7,14 +7,14 @@ fi
 
 autoload -U colors
 colors
-b_black="%{$fg_no_bold[black]%}"
-b_yellow="%{$fg_no_bold[yellow]%}"
-b_blue="%{$fg_no_bold[blue]%}"
-b_cyan="%{$fg_no_bold[cyan]%}"
-b_magenta="%{$fg_no_bold[magenta]%}"
-b_green="%{$fg_no_bold[green]%}"
-b_white="%{$fg_no_bold[white]%}"
-b_gray="%{$fg_no_bold[gray]%}"
+b_black="%{$fg_bold[black]%}"
+b_yellow="%{$fg_bold[yellow]%}"
+b_blue="%{$fg_bold[blue]%}"
+b_cyan="%{$fg_bold[cyan]%}"
+b_magenta="%{$fg_bold[magenta]%}"
+b_green="%{$fg_bold[green]%}"
+b_white="%{$fg_bold[white]%}"
+b_gray="%{$fg_bold[gray]%}"
 end="%{$reset_color%}"
 
 if [ -n "$WINDOW" ]; then
