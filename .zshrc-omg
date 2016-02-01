@@ -66,6 +66,7 @@ zle-line-init() {
     zle autosuggest-start
 }
 zle -N zle-line-init
+AUTOSUGGESTION_HIGHLIGHT_COLOR="fg=117"
 
 # User configuration
 DEFAULT_USER="yuklin0323"
@@ -111,3 +112,4 @@ bindkey "\e[3~" delete-char       # Delete
 bindkey "\e[4~" end-of-line       # End
 bindkey "\e[8~" end-of-line       # End rxvt
 bindkey "\e[F"  end-of-line
+bindkey '^f'    vi-forward-word
