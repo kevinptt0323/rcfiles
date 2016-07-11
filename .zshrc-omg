@@ -69,14 +69,7 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
-# Enable autosuggestions automatically.
-zle-line-init() {
-    if [ $os != "Darwin" ]; then
-        zle autosuggest-start
-    fi
-}
-zle -N zle-line-init
-AUTOSUGGESTION_HIGHLIGHT_COLOR="fg=117"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=117"
 
 # User configuration
 DEFAULT_USER="yuklin0323"
