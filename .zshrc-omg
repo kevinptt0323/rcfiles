@@ -63,11 +63,13 @@ else
     echo -e "\e[1;37;41m Disable zsh plugin \e[8;33;44m FreeBSD \e[0m"
 fi
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-
-#fpath=(/usr/local/share/zsh-completions $fpath)
-
 source $ZSH/oh-my-zsh.sh
+if [[ -f $HOME/rcfiles/zsh/zsh.env ]];then
+    source $HOME/rcfiles/zsh/zsh.env
+fi
+if [[ -f $HOME/rcfiles/zsh/zsh.aliases ]];then
+    source $HOME/rcfiles/zsh/zsh.aliases
+fi
 
 # Enable autosuggestions automatically.
 zle-line-init() {
@@ -75,44 +77,26 @@ zle-line-init() {
         zle autosuggest-start
     fi
 }
+
+autoload history-search-end
 zle -N zle-line-init
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
 AUTOSUGGESTION_HIGHLIGHT_COLOR="fg=117"
 
 # User configuration
 DEFAULT_USER="yuklin0323"
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-#export TERM=xterm-256color
-export TERM=screen-256color
-
-# Preferred editor for local and remote sessions
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias fvim="vim -u NONE"
-alias nvim="vim -u ~/.nvimrc"
-alias ptt="ssh bbsu@ptt.cc"
-alias bs2="ssh bbsu@ssh.bs2.to"
-alias gethost="ypcat hosts | grep '140.113.235.' | sort -t '.' -n -k4,4"
 # 去除打目錄名稱會cd進去功能
 unsetopt autocd
 unsetopt cdablevars
 
 bindkey "^W" backward-delete-word
 
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
+#bindkey '^[[A' up-line-or-search
+#bindkey '^[[B' down-line-or-search
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
 
 bindkey "\e[1~" beginning-of-line # Home
 bindkey "\e[7~" beginning-of-line # Home rxvt
@@ -123,3 +107,9 @@ bindkey "\e[4~" end-of-line       # End
 bindkey "\e[8~" end-of-line       # End rxvt
 bindkey "\e[F"  end-of-line
 bindkey '^f'    vi-forward-word
+
+PATH="/Users/Mac/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/Users/Mac/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/Mac/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/Mac/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/Mac/perl5"; export PERL_MM_OPT;
