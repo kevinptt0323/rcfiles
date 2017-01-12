@@ -5,7 +5,7 @@ screen -t home
 caption always "%{WK}Screen: %n | %h %=%t %Y/%m/%d %c:%s"
 hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
 vbell off
-#term "screen-256color"
+term "screen-256color"
 #term "xterm-256color"
 
 # Always start screen with utf8 enabled. (Alternative method is to run screen with -U parameter)

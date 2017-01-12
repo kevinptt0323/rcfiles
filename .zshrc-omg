@@ -73,9 +73,6 @@ fi
 
 # Enable autosuggestions automatically.
 zle-line-init() {
-    if [ $os != "Darwin" ]; then
-        zle autosuggest-start
-    fi
 }
 
 autoload history-search-end
@@ -107,6 +104,8 @@ bindkey "\e[4~" end-of-line       # End
 bindkey "\e[8~" end-of-line       # End rxvt
 bindkey "\e[F"  end-of-line
 bindkey '^f'    vi-forward-word
+
+export TERM=xterm-256color
 
 PATH="/Users/Mac/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="/Users/Mac/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
