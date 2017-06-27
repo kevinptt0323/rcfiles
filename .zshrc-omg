@@ -24,7 +24,7 @@ ZSH_THEME="dstufft"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -53,7 +53,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 os=$(uname)
 if [ $os = "Linux" ]; then
-    plugins=(gitfast git-flow docker node npm archlinux systemd zsh-syntax-highlighting zsh-autosuggestions)
+    plugins=(gitfast git-flow docker node npm archlinux systemd screen zsh-syntax-highlighting zsh-autosuggestions)
     echo -e "\e[8;33;44m Enable zsh plugin  \e[1;37;45m Linux \e[0m"
 elif [ $os = "Darwin" ]; then
     plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
@@ -104,8 +104,6 @@ bindkey "\e[4~" end-of-line       # End
 bindkey "\e[8~" end-of-line       # End rxvt
 bindkey "\e[F"  end-of-line
 bindkey '^f'    vi-forward-word
-
-export TERM=xterm-256color
 
 PATH="/Users/Mac/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="/Users/Mac/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
