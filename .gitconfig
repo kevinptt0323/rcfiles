@@ -11,10 +11,14 @@
 	st = status
 	br = branch
 	df = diff
+	dfw = diff --color-words
 	dt = difftool
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 	sm = submodule
+	bl = blame -c
+	unstage = reset HEAD --
+	clear = "!git co -- . && git clean -df"
 [push]
 	default = simple
 [diff]
