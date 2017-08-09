@@ -8,10 +8,12 @@
 [alias]
 	co = checkout
 	cm = commit
+	recm = commit --amend --no-edit
 	st = status
 	br = branch
 	df = diff
 	dfw = diff --color-words
+	cache = diff --cached
 	dt = difftool
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
