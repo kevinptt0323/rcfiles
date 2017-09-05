@@ -105,11 +105,12 @@ bindkey "\e[8~" end-of-line       # End rxvt
 bindkey "\e[F"  end-of-line
 bindkey '^f'    vi-forward-word
 
-PATH="/Users/Mac/perl5/bin${PATH+:}${PATH}"; export PATH;
-PERL5LIB="/Users/Mac/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/Mac/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/Mac/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/Mac/perl5"; export PERL_MM_OPT;
+export PATH="/Users/Mac/perl5/bin${PATH+:}${PATH}"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PERL5LIB="/Users/Mac/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"
+export PERL_LOCAL_LIB_ROOT="/Users/Mac/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"
+export PERL_MB_OPT="--install_base \"/Users/Mac/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=/Users/Mac/perl5"
 
 export LESS_TERMCAP_so=$'\E[01;03;31m'
 export LESS_TERMCAP_se=$'\E[m'
