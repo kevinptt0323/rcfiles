@@ -84,11 +84,12 @@ AUTOSUGGESTION_HIGHLIGHT_COLOR="fg=117"
 # User configuration
 DEFAULT_USER="yuklin0323"
 
+# disable EOF(^D) to exit shell
+setopt ignoreeof
+
 # 去除打目錄名稱會cd進去功能
 unsetopt autocd
 unsetopt cdablevars
-
-bindkey "^W" backward-delete-word
 
 #bindkey '^[[A' up-line-or-search
 #bindkey '^[[B' down-line-or-search
@@ -103,7 +104,6 @@ bindkey "\e[3~" delete-char       # Delete
 bindkey "\e[4~" end-of-line       # End
 bindkey "\e[8~" end-of-line       # End rxvt
 bindkey "\e[F"  end-of-line
-bindkey '^f'    vi-forward-word
 
 export PATH="/Users/Mac/perl5/bin${PATH+:}${PATH}"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
