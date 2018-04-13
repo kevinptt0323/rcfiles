@@ -1,15 +1,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+# Path to rcfiles repo
+RC_DIR=$HOME/rcfiles
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="xiong-chiamiov-plus"
-#ZSH_THEME="ys"
-#ZSH_THEME="dst"
 ZSH_THEME="dstufft"
-#ZSH_THEME="tjkirch_mod"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -64,11 +62,11 @@ else
 fi
 
 source $ZSH/oh-my-zsh.sh
-if [[ -f $HOME/rcfiles/zsh/zsh.env ]];then
-    source $HOME/rcfiles/zsh/zsh.env
+if [[ -f $RC_DIR/zsh/zsh.env ]];then
+    source $RC_DIR/zsh/zsh.env
 fi
-if [[ -f $HOME/rcfiles/zsh/zsh.aliases ]];then
-    source $HOME/rcfiles/zsh/zsh.aliases
+if [[ -f $RC_DIR/zsh/zsh.aliases ]];then
+    source $RC_DIR/zsh/zsh.aliases
 fi
 
 # Enable autosuggestions automatically.
@@ -81,9 +79,6 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 AUTOSUGGESTION_HIGHLIGHT_COLOR="fg=117"
 
-# User configuration
-DEFAULT_USER="yuklin0323"
-
 # disable EOF(^D) to exit shell
 setopt ignoreeof
 
@@ -91,8 +86,6 @@ setopt ignoreeof
 unsetopt autocd
 unsetopt cdablevars
 
-#bindkey '^[[A' up-line-or-search
-#bindkey '^[[B' down-line-or-search
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 
@@ -105,12 +98,8 @@ bindkey "\e[4~" end-of-line       # End
 bindkey "\e[8~" end-of-line       # End rxvt
 bindkey "\e[F"  end-of-line
 
-export PATH="/Users/Mac/perl5/bin${PATH+:}${PATH}"
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PERL5LIB="/Users/Mac/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"
-export PERL_LOCAL_LIB_ROOT="/Users/Mac/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"
-export PERL_MB_OPT="--install_base \"/Users/Mac/perl5\""
-export PERL_MM_OPT="INSTALL_BASE=/Users/Mac/perl5"
-
 export LESS_TERMCAP_so=$'\E[01;03;31m'
 export LESS_TERMCAP_se=$'\E[m'
+
+# custom you zsh here
+source $RC_DIR/zsh/zsh.custom
