@@ -1,8 +1,7 @@
 alias fvim="vim -u NONE"
 alias nvim="vim -u ~/.nvimrc"
 alias ptt="ssh bbsu@ptt.cc"
-alias bs2="ssh bbsu@ssh.bs2.to"
-alias gethost="ypcat hosts | grep '140.113.235.' | sort -t '.' -n -k4,4"
+
 OS=`env uname -s`
 if [[ $OS == "Linux" ]]; then
     alias l='env ls -F --color'
@@ -16,15 +15,3 @@ fi
 if [[ $OS == "Darwin" ]];then
     alias sd="cd /Volumes/SD/"
 fi
-
-if [[ -f /usr/local/bin/gcc49 ]];then
-    alias gcc="/usr/local/bin/gcc49"
-elif  [[ -f /usr/local/bin/gcc48 ]];then
-    alias gcc="/usr/local/bin/gcc48"
-fi
-if [[ -f /usr/local/bin/g++49 ]];then
-    alias g++="/usr/local/bin/g++49"
-elif  [[ -f /usr/local/bin/g++48 ]];then
-    alias g++="/usr/local/bin/g++48"
-fi
-
