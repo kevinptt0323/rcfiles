@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # Path to rcfiles repo
-RC_DIR=$HOME/rcfiles
+RC_DIR="$HOME/rcfiles"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/

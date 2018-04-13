@@ -1,0 +1,4 @@
+# Add your commands here
+export FOO="bar"
+echo "Hello, zsh!"
+echo "Hello $FOO!"
