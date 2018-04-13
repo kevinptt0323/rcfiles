@@ -36,13 +36,6 @@ Add commands in `zsh/zsh.custom`. See `zsh/zsh.custom.example`.
 
 Some git aliases.
 
-If you want to enable [zsh-git-prompt](https://github.com/olivierverdier/zsh-git-prompt),
-you can run command below in `rcfiles`:
-
-```
-git submodule update --init
-```
-
 ## tmux
 
 - Bind prefix key to `<C-a>`
