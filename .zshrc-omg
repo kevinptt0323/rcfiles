@@ -1,5 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+# Path to rcfiles repo
+RC_DIR=$HOME/rcfiles
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -64,11 +66,12 @@ else
 fi
 
 source $ZSH/oh-my-zsh.sh
-if [[ -f $HOME/rcfiles/zsh/zsh.env ]];then
-    source $HOME/rcfiles/zsh/zsh.env
+
+if [[ -f $RC_DIR/zsh/zsh.env ]];then
+    source $RC_DIR/zsh/zsh.env
 fi
-if [[ -f $HOME/rcfiles/zsh/zsh.aliases ]];then
-    source $HOME/rcfiles/zsh/zsh.aliases
+if [[ -f $RC_DIR/zsh/zsh.aliases ]];then
+    source $RC_DIR/zsh/zsh.aliases
 fi
 
 # Enable autosuggestions automatically.
