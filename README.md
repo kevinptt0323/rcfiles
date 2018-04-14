@@ -30,7 +30,7 @@ RC_DIR=<path-to-rcfiles> ./rcfiles/run.sh
 
 ## zsh
 
-Add commands in `zsh/zsh.custom`. See `zsh/zsh.custom.example`.
+Add custom commands in `.zshrc`.
 
 ## git
 

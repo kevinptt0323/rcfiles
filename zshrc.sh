@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 # Path to rcfiles repo
-RC_DIR="$HOME/rcfiles"
+RC_DIR=${RC_DIR:-$HOME/rcfiles}
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -100,6 +100,3 @@ bindkey "\e[F"  end-of-line
 
 export LESS_TERMCAP_so=$'\E[01;03;31m'
 export LESS_TERMCAP_se=$'\E[m'
-
-# custom you zsh here
-source $RC_DIR/zsh/zsh.custom
