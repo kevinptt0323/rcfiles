@@ -44,21 +44,8 @@ HIST_STAMPS="mm/dd/yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-os=$(uname)
-if [ $os = "Linux" ]; then
-    plugins=(gitfast git-flow docker node npm archlinux systemd screen zsh-syntax-highlighting)
-    echo -e "\e[8;33;44m Enable zsh plugin  \e[1;37;45m Linux \e[0m"
-elif [ $os = "Darwin" ]; then
-    plugins=(git git-open git-prompt colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
-    echo -e "\e[8;33;44m Enable zsh plugin  \e[1;37;45m Mac OS X \e[0m"
-else
-    plugins=(zsh-syntax-highlighting zsh-autosuggestions)
-    echo -e "\e[1;37;41m Disable zsh plugin \e[8;33;44m FreeBSD \e[0m"
+if [[ -f $RC_DIR/zsh/zsh.plugins ]];then
+    source $RC_DIR/zsh/zsh.plugins
 fi
 
 source $ZSH/oh-my-zsh.sh

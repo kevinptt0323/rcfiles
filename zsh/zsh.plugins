@@ -1,0 +1,18 @@
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+os=$(uname)
+common_plugins=(tmux node npm nvm yarn pip git gitfast zsh-syntax-highlighting)
+if [ $os = "Linux" ]; then
+    plugins=(docker archlinux systemd)
+    echo -e "\e[8;33;44m Enable zsh plugin  \e[1;37;45m Linux \e[0m"
+elif [ $os = "Darwin" ]; then
+    plugins=(git-open git-prompt colored-man colorize virtualenv brew osx)
+    echo -e "\e[8;33;44m Enable zsh plugin  \e[1;37;45m Mac OS X \e[0m"
+else
+    plugins=(zsh-autosuggestions)
+    echo -e "\e[1;37;41m Disable zsh plugin \e[8;33;44m FreeBSD \e[0m"
+fi
+
+plugins=($common_plugins $plugins)
