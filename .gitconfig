@@ -30,3 +30,5 @@
 	tool = vimdiff
 [remote]
 	prune = true
+[color]
+	ui = auto
