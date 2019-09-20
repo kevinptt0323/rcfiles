@@ -85,5 +85,9 @@ bindkey "\e[4~" end-of-line       # End
 bindkey "\e[8~" end-of-line       # End rxvt
 bindkey "\e[F"  end-of-line
 
+_zsh_cli_fg() { fg; }
+zle -N _zsh_cli_fg
+bindkey '^Z' _zsh_cli_fg
+
 export LESS_TERMCAP_so=$'\E[01;03;31m'
 export LESS_TERMCAP_se=$'\E[m'
