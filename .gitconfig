@@ -13,13 +13,14 @@
 	br = branch
 	df = diff
 	dfw = diff --color-words
-	cache = diff --cached
+	cached = diff --cached
 	dt = difftool
     mt = mergetool
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 	sm = submodule
 	bl = blame -c
+	rb = rebase
 	unstage = reset HEAD --
 	clear = "!git co -- . && git clean -df"
 [push]
