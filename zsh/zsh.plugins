@@ -3,7 +3,7 @@
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 os=$(uname)
-common_plugins=(tmux node npm nvm yarn pip git gitfast zsh-syntax-highlighting)
+common_plugins=(tmux node npm nvm yarn pip git gitfast)
 if [ $os = "Linux" ]; then
     plugins=(docker archlinux systemd)
     echo -e "\e[8;33;44m Enable zsh plugin  \e[1;37;45m Linux \e[0m"
