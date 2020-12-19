@@ -2,7 +2,15 @@ alias fvim="vim -u NONE"
 alias nvim="vim -u ~/.nvimrc"
 alias ptt="ssh bbsu@ptt.cc"
 
-OS=`env uname -s`
+svim() {
+    if (( # == 0 )); then
+        vim --servername ${VIM_SERVER:-main}
+    else
+        vim --servername ${VIM_SERVER:-main} --remote-tab $@
+    fi
+}
+
+OS=$(uname -s)
 if [[ $OS == "Linux" ]]; then
     alias l='env ls -F --color'
     alias ls='env ls -Fhl --color'
@@ -12,6 +20,6 @@ else
     alias ls='env ls -hlGF'
     alias ll='env ls -hlaGF'
 fi
-if [[ $OS == "Darwin" ]];then
+if [[ $OS == "Darwin" ]]; then
     alias sd="cd /Volumes/SD/"
 fi

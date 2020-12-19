@@ -1,0 +1,40 @@
+#!/bin/sh
+set -e
+
+cd $(dirname $0)
+if [ -z $RC_DIR ]; then
+  RC_DIR="$(pwd)"
+  RC_DIR_HOME="$(echo "${RC_DIR}" | sed "s,${HOME},\${HOME},")"
+  echo "\$RC_DIR is not specified. Using '${RC_DIR_HOME}' ."
+fi
+cd "${HOME}"
+
+echo "Installing oh-my-zsh..."
+if [ ! -d .oh-my-zsh ]; then
+  git clone https://github.com/robbyrussell/oh-my-zsh .oh-my-zsh
+else
+  echo "Found existing oh-my-zsh. Skipped."
+fi
+
+TARGET_FILES=".gitconfig .ripgreprc .tmux.conf .zshrc"
+for FILE in ${TARGET_FILES}; do
+  if mv "${FILE}" "${FILE}.bak"; then
+    echo "Rename ${FILE} to ${FILE}.bak"
+  fi
+done
+
+for FILE in ${TARGET_FILES}; do
+  if [ ! "${FILE}" = ".zshrc" ]; then
+    echo "Linking ${FILE} to ${RC_DIR}/${FILE}"
+    ln -s "${RC_DIR}/${FILE}" "${FILE}"
+  fi
+done
+
+echo "Generating .zshrc"
+cat <<EOT > .zshrc
+RC_DIR=${RC_DIR}
+source \${RC_DIR}/zshrc.common
+local_plugins=()
+EOT
+
+echo "Install successfully. Please restart your zsh."
