@@ -33,8 +33,8 @@ done
 echo "Generating .zshrc"
 cat <<EOT > .zshrc
 RC_DIR=${RC_DIR}
-source \${RC_DIR}/zshrc.common
 local_plugins=()
+source \${RC_DIR}/zshrc.common
 EOT
 
 echo "Install successfully. Please restart your zsh."
