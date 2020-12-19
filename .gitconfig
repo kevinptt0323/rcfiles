@@ -11,14 +11,18 @@
 	recm = commit --amend --no-edit
 	st = status
 	br = branch
+	cp = cherry-pick
 	df = diff
+	dfc = diff --color-words=.
 	dfw = diff --color-words
 	cached = diff --cached
 	dt = difftool
-    mt = mergetool
+	mt = mergetool
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	lga = lg --all
+	lg1 = "!git -P lg -1"
 	sm = submodule
+	sw = switch
 	bl = blame -c
 	rb = rebase
 	unstage = reset HEAD --
@@ -33,3 +37,5 @@
 	prune = true
 [color]
 	ui = auto
+[oh-my-zsh]
+	hide-status = 1
