@@ -1,6 +1,3 @@
-[user]
-	email = kevinptt0323@gmail.com
-	name = Kevin Lin
 [credential]
 	helper = cache --timeout=3600
 [core]
