@@ -8,7 +8,7 @@ if [ $OS = "Linux" ]; then
     os_plugins=(docker archlinux systemd)
     echo -e "\e[1;33;44m Enable zsh plugin  \e[1;37;45m Linux \e[0m"
 elif [ $OS = "Darwin" ]; then
-    os_plugins=(git-open git-prompt colored-man colorize virtualenv brew osx)
+    os_plugins=(git-open git-prompt colored-man-pages colorize virtualenv brew osx)
     echo -e "\e[1;33;44m Enable zsh plugin  \e[1;37;45m Mac OS X \e[0m"
 else
     os_plugins=(zsh-autosuggestions)
