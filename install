@@ -2,11 +2,10 @@
 set -e
 
 cd $(dirname $0)
-if [ -z $RC_DIR ]; then
-  RC_DIR="$(pwd)"
-  RC_DIR_HOME="$(echo "${RC_DIR}" | sed "s,${HOME},\${HOME},")"
-  echo "\$RC_DIR is not specified. Using '${RC_DIR_HOME}' ."
-fi
+: "${RC_DIR:=$(pwd)}"
+RC_DIR_HOME="$(echo "${RC_DIR}" | sed "s,${HOME},~,")"
+echo "\$RC_DIR=${RC_DIR}"
+echo "\$RC_DIR_HOME=${RC_DIR_HOME}"
 cd "${HOME}"
 
 echo "Installing oh-my-zsh..."
@@ -16,8 +15,8 @@ else
   echo "Found existing oh-my-zsh. Skipped."
 fi
 
-TARGET_FILES=".ripgreprc .tmux.conf"
-BACKUP_TARGET_FILES="${TARGET_FILES} .gitconfig .zshrc"
+TARGET_FILES=".ripgreprc"
+BACKUP_TARGET_FILES="${TARGET_FILES} .gitconfig .tmux.conf .zshrc"
 for FILE in ${BACKUP_TARGET_FILES}; do
   if mv "${FILE}" "${FILE}.bak"; then
     echo "Rename ${FILE} to ${FILE}.bak"
@@ -25,19 +24,24 @@ for FILE in ${BACKUP_TARGET_FILES}; do
 done
 
 for FILE in ${TARGET_FILES}; do
-  echo "Linking ${FILE} to ${RC_DIR}/${FILE}"
-  ln -s "${RC_DIR}/${FILE}" "${FILE}"
+  echo "Linking ${FILE} to ${RC_DIR_HOME}/${FILE}"
+  ln -s "${RC_DIR_HOME}/${FILE}" "${FILE}"
 done
 
 echo "Generating .gitconfig"
 cat <<EOT > .gitconfig
 [include]
-    path = ${RC_DIR}/.gitconfig
+    path = ${RC_DIR_HOME}/.gitconfig
+EOT
+
+echo "Generating .tmux.conf"
+cat <<EOT > .tmux.conf
+source-file ${RC_DIR_HOME}/tmux.conf
 EOT
 
 echo "Generating .zshrc"
 cat <<EOT > .zshrc
-RC_DIR=${RC_DIR}
+RC_DIR=${RC_DIR_HOME}
 local_plugins=()
 source \${RC_DIR}/zshrc.common
 EOT
