@@ -1,3 +1,4 @@
+alias vim="$VIM_PATH -p"
 alias fvim="vim -u NONE"
 alias nvim="vim -u ~/.nvimrc"
 alias ptt="ssh bbsu@ptt.cc"

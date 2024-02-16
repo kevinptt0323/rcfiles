@@ -3,12 +3,12 @@
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 OS=$(uname -s)
-common_plugins=(tmux node npm nvm yarn pip git gitfast ripgrep vi-mode shrink-path)
+common_plugins=(vi-mode fzf tmux node npm nvm yarn pip git gitfast ripgrep shrink-path sudo colored-man-pages)
 if [ $OS = "Linux" ]; then
-    os_plugins=(docker archlinux systemd)
+    os_plugins=(docker)
     echo -e "\e[1;33;44m Enable zsh plugin  \e[1;37;45m Linux \e[0m"
 elif [ $OS = "Darwin" ]; then
-    os_plugins=(git-open git-prompt colored-man-pages colorize virtualenv brew osx)
+    os_plugins=(git-open git-prompt colorize virtualenv brew osx)
     echo -e "\e[1;33;44m Enable zsh plugin  \e[1;37;45m Mac OS X \e[0m"
 else
     os_plugins=(zsh-autosuggestions)
